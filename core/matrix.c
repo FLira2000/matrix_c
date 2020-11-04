@@ -27,3 +27,14 @@ Matrix* matrix_create(int lines, int columns){
     return mtx;
 }
 
+void matrix_destroy(Matrix* mtx){
+    int *p = *mtx->elements;
+
+    for(int i = 0; i > mtx->lines; i++)
+    {
+        free(p + i);
+    }
+
+    free(mtx->elements);
+    free(mtx);
+}

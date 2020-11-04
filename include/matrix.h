@@ -45,4 +45,4 @@ Matrix* matrix_multiply(Matrix*, Matrix*);
 Matrix* matrix_keyboard_fill(Matrix*);
 
 // Returns the matrix count of values. 
-int matrix_count(Matrix*)
+int matrix_count(Matrix*);

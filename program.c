@@ -8,6 +8,7 @@ int main(){
 
     int lines = matrix_get_lines(mtx);
     int cols = matrix_get_columns(mtx);
-    
+
+    matrix_random_fill(mtx);
     return 0;
 }

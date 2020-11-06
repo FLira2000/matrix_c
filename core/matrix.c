@@ -64,3 +64,14 @@ int matrix_get_lines(Matrix* mtx){
 int matrix_get_columns(Matrix* mtx){
     return mtx->columns;
 }
+
+void matrix_random_fill(Matrix* mtx){
+    int *p;
+    for(int i = 0; i < mtx->lines; i++){
+        p = *(mtx->elements + i);
+        for(int j = 0; j < mtx->columns; j++){
+            *(p + j) = rand();
+        }
+    }
+}
+

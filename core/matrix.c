@@ -48,3 +48,11 @@ void matrix_assign_element(Matrix* mtx, int i, int j, int value){
     p = *(mtx->elements + i);
     *(p + j) = value;
 }
+
+int matrix_access_element(Matrix* mtx, int i, int j){
+    if(i > mtx->lines || j > mtx->columns)
+        return 0x0;
+
+    int *p = *(mtx->elements + i);
+    return *(p + j);
+}

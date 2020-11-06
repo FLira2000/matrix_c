@@ -38,3 +38,13 @@ void matrix_destroy(Matrix* mtx){
     free(mtx->elements);
     free(mtx);
 }
+
+void matrix_assign_element(Matrix* mtx, int i, int j, int value){
+    if(i > mtx->lines || j > mtx->columns){
+        return;
+    }
+
+    int *p;
+    p = *(mtx->elements + i);
+    *(p + j) = value;
+}

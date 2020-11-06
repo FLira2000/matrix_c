@@ -6,5 +6,8 @@ int main(){
     matrix_assign_element(mtx, 0, 0, 2);
     int xpto = matrix_access_element(mtx, 0, 0);
 
+    int lines = matrix_get_lines(mtx);
+    int cols = matrix_get_columns(mtx);
+    
     return 0;
 }

@@ -56,3 +56,11 @@ int matrix_access_element(Matrix* mtx, int i, int j){
     int *p = *(mtx->elements + i);
     return *(p + j);
 }
+
+int matrix_get_lines(Matrix* mtx){
+    return mtx->lines;
+}
+
+int matrix_get_columns(Matrix* mtx){
+    return mtx->columns;
+}

@@ -99,3 +99,38 @@ Matrix* matrix_copy(Matrix* mtx){
     return newMat;
 }
 
+Matrix* matrix_multiply(Matrix* mtx1, Matrix* mtx2){
+    if(mtx1->columns != mtx2->lines)
+        return NULL;
+
+    Matrix* mX = matrix_create(mtx1->lines, mtx2->columns);
+
+    if (mX == NULL) return NULL;
+
+    int c, d, k, sum = 0;
+
+    for (c = 0; c < mtx1->lines; c++) {
+      for (d = 0; d < mtx2->columns; d++) {
+        for (k = 0; k < mtx2->lines; k++) {
+          sum = sum + matrix_access_element(mtx1, c, k) * matrix_access_element(mtx2, k, d);
+        }
+
+        matrix_assign_element(mX, c, d, sum);
+        sum = 0;
+      }
+    }
+
+    return mX;
+}
+
+Matrix* matrix_keyboard_fill(Matrix* mtx){
+    int *p, *q;
+    for(int i = 0; i < mtx->lines; i++){
+        p = *(mtx->elements + i);
+        for(int j = 0; j < mtx->columns; j++){
+            q = (p + j);
+            printf("Enter with Matrix[%d][%d]: ", i+1, j+1);
+            scanf("%d", q);
+        }
+    }
+}

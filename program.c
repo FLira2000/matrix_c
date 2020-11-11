@@ -15,6 +15,14 @@ int main(){
     Matrix* mtx2 = matrix_copy(mtx);
     matrix_assign_element(mtx2, 1, 1, 1010101);
     matrix_print(mtx2);
-    
+
+
+    matrix_keyboard_fill(mtx);
+    matrix_keyboard_fill(mtx2);
+
+    Matrix* multiplied = matrix_multiply(mtx, mtx2);
+    matrix_print(multiplied);
+
+
     return 0;
 }

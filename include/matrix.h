@@ -41,8 +41,14 @@ Matrix* matrix_copy(Matrix*);
  linear algebra does rules.*/
 Matrix* matrix_multiply(Matrix*, Matrix*);
 
-/*Fills an matrix with input values from the keyboard, one by one. */
-Matrix* matrix_keyboard_fill(Matrix*);
+/*Fills an matrix with input values from the keyboard, one by one. Procedure. Expects a Matrix pointer by argument. */
+void matrix_keyboard_fill(Matrix*);
 
-// Returns the matrix count of values. 
+//Returns the matrix count of values. 
 int matrix_count(Matrix*);
+
+//Returns a pointer to a new Matrix object, which is the tranpose of a Matrix passed by argument.
+Matrix* matrix_transpose(Matrix*);
+
+//Returns 1 if the matrix is symmetrical or 0 if not.
+int matrix_symmetrical(Matrix*);

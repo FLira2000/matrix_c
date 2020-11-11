@@ -1,5 +1,5 @@
 #include "include/matrix.h"
-
+#include <stdio.h>
 int main(){
     Matrix* mtx = matrix_create(2, 2);
     //matrix_destroy(mtx);
@@ -23,6 +23,12 @@ int main(){
     Matrix* multiplied = matrix_multiply(mtx, mtx2);
     matrix_print(multiplied);
 
+    Matrix* transp = matrix_transpose(multiplied);
+    matrix_print(transp);
+
+    Matrix* symm = matrix_create(3, 3);
+    matrix_keyboard_fill(symm);
+    printf("%d\n", matrix_symmetrical(symm));
 
     return 0;
 }

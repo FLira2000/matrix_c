@@ -123,7 +123,7 @@ Matrix* matrix_multiply(Matrix* mtx1, Matrix* mtx2){
     return mX;
 }
 
-Matrix* matrix_keyboard_fill(Matrix* mtx){
+void matrix_keyboard_fill(Matrix* mtx){
     int *p, *q;
     for(int i = 0; i < mtx->lines; i++){
         p = *(mtx->elements + i);
@@ -133,4 +133,45 @@ Matrix* matrix_keyboard_fill(Matrix* mtx){
             scanf("%d", q);
         }
     }
+}
+
+int matrix_count(Matrix* mtx){
+    return mtx->columns * mtx->lines;
+}
+
+Matrix* matrix_transpose(Matrix* mtx){
+    Matrix* transp = matrix_create(mtx->columns, mtx->lines);
+
+    if(transp == NULL) return NULL;
+
+    int c = 0, *arr = (int*) malloc(sizeof(int) * matrix_count(mtx));
+
+    for(int i = 0; i < mtx->lines; i++)
+        for(int j = 0; j < mtx->columns; j++)
+            *(arr + c++) = matrix_access_element(mtx, i, j);
+    c = 0;
+    for(int j = 0; j < transp->columns; j++)
+        for(int i = 0; i < transp->lines; i++)
+            matrix_assign_element(transp, i, j, *(arr + c++));
+
+    return transp;
+}
+
+int matrix_symmetrical(Matrix* mtx){
+
+    Matrix* mtx2 = matrix_transpose(mtx);
+
+    if(mtx->columns != mtx2->columns || mtx->lines != mtx2->lines)
+        return 0;
+
+    for(int i = 0; i < mtx->lines; i++)
+        for(int j = 0; j < mtx2->columns; j++)
+            if(matrix_access_element(mtx, i, j) != matrix_access_element(mtx2, i, j))
+            {
+                matrix_destroy(mtx2);
+                return 0;
+            }
+
+    matrix_destroy(mtx2);
+    return 1;
 }

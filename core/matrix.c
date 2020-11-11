@@ -86,3 +86,16 @@ void matrix_print(Matrix* mtx){
         printf("\n");
     }
 }
+
+Matrix* matrix_copy(Matrix* mtx){
+    Matrix *newMat = matrix_create(mtx->lines, mtx->columns);
+
+    if(newMat == NULL) return NULL;
+
+    for(int i = 0; i < newMat->lines; i++)
+        for(int j = 0; j < newMat->columns; j++)
+            matrix_assign_element(newMat, i, j, matrix_access_element(mtx, i, j));
+
+    return newMat;
+}
+

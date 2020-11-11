@@ -11,5 +11,10 @@ int main(){
 
     matrix_random_fill(mtx);
     matrix_print(mtx);
+
+    Matrix* mtx2 = matrix_copy(mtx);
+    matrix_assign_element(mtx2, 1, 1, 1010101);
+    matrix_print(mtx2);
+    
     return 0;
 }

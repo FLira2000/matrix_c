@@ -75,3 +75,14 @@ void matrix_random_fill(Matrix* mtx){
     }
 }
 
+void matrix_print(Matrix* mtx){
+    int *p;
+    printf("Showing matrix %d X %d: \n", mtx->lines, mtx->columns);
+    for(int i = 0; i < mtx->lines; i++){
+        p = mtx->elements[i];
+        for(int j = 0; j < mtx->columns; j++){
+            printf("[%d]\t", *(p + j));
+        }
+        printf("\n");
+    }
+}

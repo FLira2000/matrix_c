@@ -10,5 +10,6 @@ int main(){
     int cols = matrix_get_columns(mtx);
 
     matrix_random_fill(mtx);
+    matrix_print(mtx);
     return 0;
 }

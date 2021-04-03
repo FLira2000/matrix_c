@@ -51,4 +51,8 @@ int matrix_count(Matrix* matrix_pointer);
 Matrix* matrix_transpose(Matrix* matrix_pointer);
 
 //Returns 1 if the matrix is symmetrical or 0 if not.
-int matrix_symmetrical(Matrix* matrix_pointer);
+int matrix_symmetrical(Matrix* matrix_pointer); 
+
+//Returns an array with the eigenvector of a matrix. Also, a pointer for a integer must be send as a parameter to contain the length of the eigenvector.
+int* matrix_eigenvector(Matrix* matrix_pointer, int* size);
+//TODO
